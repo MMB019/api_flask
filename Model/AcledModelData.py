@@ -1,0 +1,40 @@
+from utils.db_connector import get_db
+from common import appName
+db=get_db(appName.get_app())
+class Acled(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    data_id = db.Column(db.Integer)
+    iso = db.Column(db.Integer, nullable=True)
+    event_id_cnty = db.Column(db.String(255),  nullable=True)
+    event_id_no_cnty = db.Column(db.String(255), nullable=True)
+    event_date = db.Column(db.Date,  nullable=True)
+    year = db.Column(db.Integer, nullable=True)
+    time_precision = db.Column(db.Integer, nullable=True)
+    event_type = db.Column(db.String(255), nullable=True)
+    sub_event_type = db.Column(db.String(255), nullable=True)
+    actor1 = db.Column(db.String(255), nullable=True)
+    assoc_actor_1 = db.Column(db.String(255), nullable=True)
+    inter1 = db.Column(db.Integer, nullable=True)
+    actor2 = db.Column(db.String(255), nullable=True)
+    assoc_actor_2 = db.Column(db.String(255), nullable=True)
+    inter2 = db.Column(db.Integer, nullable=True)
+    interaction = db.Column(db.Integer, nullable=True)
+    region = db.Column(db.String(255), nullable=True)
+    country = db.Column(db.String(255), nullable=True)
+    admin1 = db.Column(db.String(255), nullable=True)
+    admin2 = db.Column(db.String(255), nullable=True)
+    admin3 = db.Column(db.String(255), nullable=True)
+    location = db.Column(db.String(255), nullable=True)
+    latitude = db.Column(db.Float, nullable=True)
+    longitude = db.Column(db.Float, nullable=True)
+    geo_precision = db.Column(db.Integer, nullable=True)
+    source = db.Column(db.Text(1000), nullable=True)
+    source_scale = db.Column(db.String(255), nullable=True)
+    notes = db.Column(db.Text(1000), nullable=True)
+    fatalities = db.Column(db.Integer, nullable=True)
+    timestamp = db.Column(db.Integer, nullable=True)
+    iso3 = db.Column(db.String(255), nullable=True)
+
+
+    def __repr__(self):
+        return '<User %r>' % self.data_id
